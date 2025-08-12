@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventure Begins</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Mobile-first adjustments */
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #0b0b0b;
+            color: #eee;
+            text-align: center;
+            padding: 5vw;
+            line-height: 1.6;
+        }
+        
+        /* Typing animation styles */
+        .typewriter {
+            opacity: 0;
+            overflow: hidden;
+        }
+        
+        .typewriter.typing {
+            opacity: 1;
+            border-right: 2px solid #ffcc00;
+            animation: blink-caret 1s infinite;
+        }
+        
+        .typewriter.completed {
+            opacity: 1;
+            border-right: none;
+        }
+        
+        @keyframes blink-caret {
+            0%, 50% { border-color: #ffcc00; }
+            51%, 100% { border-color: transparent; }
+        }
+        h1 {
+            font-size: 6vw;
+            color: #ffcc00;
+            text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff6600;
+        }
+        p {
+            font-size: 4.5vw;
+            margin-bottom: 5vw;
+        }
+        input {
+            width: 80%;
+            max-width: 300px;
+            padding: 3vw;
+            font-size: 5vw;
+            margin-top: 4vw;
+            border: 2px solid #ffcc00;
+            border-radius: 10px;
+            background: #111;
+            color: #fff;
+            text-align: center;
+            opacity: 0;
+        }
+        button {
+            width: 80%;
+            max-width: 300px;
+            background: #ff6600;
+            border: none;
+            color: #fff;
+            padding: 3vw;
+            margin-top: 4vw;
+            font-size: 5vw;
+            border-radius: 10px;
+            cursor: pointer;
+            opacity: 0;
+        }
+
+        .clue1 {
+            background: rgb(255, 204, 0);
+            opacity: 0;
+        }
+
+        .clue2 {
+            background: rgb(255, 153, 0);
+            opacity: 0;
+        }
+
+        .solution {
+            background: rgb(255, 102, 0);
+            opacity: 0;
+        }
+
+        button:hover {
+            background: #ff9900;
+        }
+        .hiddenHint {
+            font-size: 4vw;
+            color: #ccc;
+            margin-top: 4vw;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: #333;
+            margin: 6vw 0;
+        }
+        
+        #hintsSection {
+            opacity: 0;
+        }
+    </style>
+    <script>
+        function checkCode() {
+            const entered = document.getElementById('codeInput').value.trim();
+            if (entered === "578") {
+                window.location.href = "answer1.html";
+            } else {
+                document.getElementById('errorMsg').innerText = "Not quite... Try again!";
+                typeWriter(document.getElementById('errorMsg'), 30);
+            }
+        }
+        function revealHint() {
+            const hint = document.getElementById('hiddenHint');
+            hint.style.display = 'block';
+            typeWriter(hint, 50);
+        }
+        function revealHint2() {
+            const hint2 = document.getElementById('hiddenHint2');
+            hint2.style.display = 'block';
+            typeWriter(hint2, 30);
+        }
+        function revealSolution() {
+            const solution = document.getElementById('hiddenSolution');
+            solution.style.display = 'block';
+            typeWriter(solution, 50);
+        }
+
+        // Typewriter animation function
+        function typeWriter(element, speed = 50, callback = null) {
+            const text = element.textContent;
+            element.textContent = '';
+            element.classList.add('typewriter', 'typing');
+            
+            let i = 0;
+            const timer = setInterval(() => {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(timer);
+                    element.classList.remove('typing');
+                    element.classList.add('completed');
+                    if (callback) callback();
+                }
+            }, speed);
+        }
+
+        // Initialize typing animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const elementsToType = [
+                { selector: 'h1', delay: 0, speed: 80 },
+                { 
+                    selector: 'p:first-of-type', 
+                    delay: 1500, 
+                    speed: 40,
+                    callback: showHintsSection // Show hints section after main paragraph completes
+                }
+            ];
+
+            function showHintsSection() {
+                // Show input and button first, right after main paragraph
+                const input = document.getElementById('codeInput');
+                const button = document.querySelector('button');                               
+                if (input) {
+                    input.style.transition = 'opacity 0.5s ease-in';
+                    setTimeout(() => input.style.opacity = '1', 100);
+                }
+                if (button) {
+                    button.style.transition = 'opacity 0.5s ease-in';
+                    setTimeout(() => button.style.opacity = '1', 300);
+                }
+                
+                // Then show hints section after input/button appear
+                setTimeout(() => {
+                    const hintsSection = document.getElementById('hintsSection');
+                    if (hintsSection) {
+                        hintsSection.style.opacity = '1';
+                        hintsSection.style.transition = 'opacity 0.5s ease-in';
+                    }
+                    
+                    // Type out hints section content in order
+                    const hintElements = hintsSection.querySelectorAll('p');
+                    hintElements.forEach((element, index) => {
+                        element.classList.add('typewriter');
+                        setTimeout(() => {
+                            typeWriter(element, 60);
+                        }, index * 800);
+                    });
+                }, 1500);
+                
+                                // Show hint buttons after hints section content finishes
+                setTimeout(() => {
+                    const hintButtons = document.querySelectorAll('.clue1, .clue2, .solution');
+                    hintButtons.forEach((btn, index) => {
+                        btn.style.transition = 'opacity 0.5s ease-in';
+                        setTimeout(() => btn.style.opacity = '1', index * 300);
+                    });
+                }, 4500);
+            }
+
+            elementsToType.forEach(item => {
+                const element = document.querySelector(item.selector);
+                if (element) {
+                    element.classList.add('typewriter');
+                    setTimeout(() => {
+                        typeWriter(element, item.speed, item.callback);
+                    }, item.delay);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1 style="margin-top: 40px;">The Birthday Quest 🔍</h1>
+    <p>
+        It’s August 2025, and a son from the sea is turning another turn around the sun...  
+        Far from the shore, where frost never melts,  
+        lie three frozen kingdoms in a chest of cold winds.  
+        Each kingdom guards its own shimmering soldiers — count them,  
+        bind their tallies together, and you shall hold the key to your first treasure.
+    </p>
+
+    <input id="codeInput" type="tel" maxlength="3" placeholder="Enter 3-digit code">
+    <br>
+    <button onclick="checkCode()">Submit</button>
+    <p id="errorMsg" style="color: red; margin-top: 10px; font-size: 4vw;"></p>
+    
+    <div id="hintsSection">
+        <hr style="margin-block: 40px;">
+        ...
+        <hr style="margin-block: 40px;">
+        <p>Need a hint?</p>
+        <hr style="margin-block: 40px;">
+        ...
+        <hr style="margin-block: 40px;">
+        <p>Stop! You can do it without any hints!</p>
+        <hr style="margin-block: 40px;">
+        ...
+        <hr style="margin-block: 40px;">
+        <p>Okay, you can take a look to the clues</p>
+        <hr style="margin-block: 40px;">
+    </div>
+
+    <button onclick="revealHint()" class="clue1">❓ Reveal Clue</button>
+    <p id="hiddenHint" style="display:none;" class="hiddenHint">
+        Think about where ice soldiers rest before they sail to your glass.
+    </p>
+
+    <hr>
+    <button onclick="revealHint2()" class="clue2">💡 Reveal Clue 2</button>
+    <p id="hiddenHint2" style="display:none;" class="hiddenHint">
+        In the freezer, there are three ice trays. Count the number of ice cubes in each tray.  
+        Combine them into a 3-digit number (no spaces).  
+        That number will lead you to your first treasure.
+    </p>
+
+    <hr>
+    <button onclick="revealSolution()" class="solution">📝 Reveal Solution</button>
+    <p id="hiddenSolution" style="display:none;" class="hiddenHint">
+        The answer is 578.
+    </p>
+</body>
+</html>
