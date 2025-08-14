@@ -1,17 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Clue 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventure Continues</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Clue 2</h1>
-    <p>Check the right drawer of the bathroom cabinet. A paper awaits you with the next code.</p>
+    <h1 style="margin-top: 40px;">Ñam ñam ñam 𓌉◯𓇋</h1>
+        <div id="content" style="display: none;">
+        <p style="opacity: 0;">
+            I'm a plate of tangled golden threads,<br>
+            With peanuts crushed and citrus spreads.<br>
+            A mix of flavors, bold and bright,<br>
+            Sweet, sour, salty—pure delight.<br><br>
 
-    <input id="codeInput" type="text" maxlength="4" placeholder="Enter code">
-    <br>
-    <button onclick="checkCode('clue2.html', 'clue3.html')">Submit</button>
+            Egg and sprouts join in the fun,<br>
+            Stir-fried quickly till it's done.<br>
+            Guess my name, this tasty ride,<br>
+            A famous noodle dish you'll find inside.
+        </p>
+
+        <input id="codeInput" type="tel" placeholder="Write who I am" style="opacity: 0;">
+        <br>
+        <button onclick="checkCode()" style="opacity: 0;">Submit</button>
+        <p id="errorMsg" style="color: red; margin-top: 10px; font-size: 4vw;"></p>
+
+        <button onclick="revealHint()" class="clue1" style="margin-top: 120px; opacity: 0;">❓ Reveal Clue</button>
+        <p id="hiddenHint" style="display:none;" class="hidden-hint">
+            Your favourite dish is a stir-fried noodle delight.
+        </p>
+
+        <hr style="opacity: 0;">
+        <button onclick="revealHint2()" class="clue2" style="opacity: 0;">💡 Reveal Clue 2</button>
+        <p id="hiddenHint2" style="display:none;" class="hidden-hint">
+            Andy's stomach ache 😷
+        </p>
+
+        <hr style="opacity: 0;">
+        <button onclick="revealSolution()" class="solution" style="opacity: 0;">📝 Reveal Solution</button>
+        <p id="hiddenSolution" style="display:none;" class="hidden-hint">
+            The answer is Pad thai
+        </p>
+    </div>
 </body>
 </html>

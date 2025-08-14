@@ -1,18 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Clue 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventure Continues</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Clue 3</h1>
-    <p>Scan the QR code you’ll find on the living room bookshelf.  
-       It will lead you to a riddle — solve it for the next 4-digit code.</p>
+    <h1 style="margin-top: 40px;">Anonymous 👤</h1>
+        <div id="content" style="display: none;">
+        <p style="opacity: 0;">
+            I’m not a name, yet I tell who’s mine, <br>
+            A code of letters and numbers in line.<br>
+            I never speak, yet I declare,<br>
+            Who owns this craft and where they care.<br><br>
 
-    <input id="codeInput" type="text" maxlength="4" placeholder="Enter code">
-    <br>
-    <button onclick="checkCode('clue3.html', 'clue4.html')">Submit</button>
+            On my hull in white I stay,<br>
+            Find me, and you’ll know the way.
+        </p>
+
+        <input id="codeInput" type="tel" maxlength="7" placeholder="Enter the code" style="opacity: 0;">
+        <br>
+        <button onclick="checkCode()" style="opacity: 0;">Submit</button>
+        <p id="errorMsg" style="color: red; margin-top: 10px; font-size: 4vw;"></p>
+
+        <button onclick="revealHint()" class="clue1" style="margin-top: 120px; opacity: 0;">❓ Reveal Clue</button>
+        <p id="hiddenHint" style="display:none;" class="hidden-hint">
+            A white code
+        </p>
+
+        <hr style="opacity: 0;">
+        <button onclick="revealHint2()" class="clue2" style="opacity: 0;">💡 Reveal Clue 2</button>
+        <p id="hiddenHint2" style="display:none;" class="hidden-hint">
+            Andy's handwriting
+        </p>
+
+        <hr style="opacity: 0;">
+        <button onclick="revealSolution()" class="solution" style="opacity: 0;">📝 Reveal Solution</button>
+        <p id="hiddenSolution" style="display:none;" class="hidden-hint">
+            The answer is ON9728
+        </p>
+    </div>
 </body>
 </html>
+
