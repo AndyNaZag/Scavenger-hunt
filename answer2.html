@@ -34,6 +34,7 @@
             left: 0;
             mix-blend-mode: multiply;
             opacity: 0.8;
+            max-height: 40vh;
         }
         .sponsor {
             font-style: italic;
@@ -59,15 +60,21 @@
             background: #c62828 !important;
             box-shadow: 0 6px 12px rgba(198, 40, 40, 0.4);
         }
+        .wrapper {
+            max-height: 60vh;
+            overflow-y: auto;
+        }
     </style>
 </head>
 <body>
-    <h1>✚ Treasure #2 Found ✚</h1>
-    <p>
-        For life’s little oopsies—so you’re always ready to patch things up. Your treasure is hiding under the bathroom sink.
-    </p>
-    <p class="sponsor">This gift has been sponsored by: <br>∼ Isis & Agus ⛑️ ∼</p>
-    <a href="clue3.html"><button>Continue to Next Clue</button></a>
+    <div class="wrapper">
+        <h1>✚ Treasure #2 Found ✚</h1>
+        <p>
+            For life’s little oopsies—so you’re always ready to patch things up. Your treasure is hiding under the bathroom sink.
+        </p>
+        <p class="sponsor">This gift has been sponsored by: <br>∼ Isis & Agus ⛑️ ∼</p>
+        <a href="clue3.html"><button>Continue to Next Clue</button></a>
+    </div>
 
     <img src="assets/first-aid.gif" alt="first-aid" class="wave">
 </body>

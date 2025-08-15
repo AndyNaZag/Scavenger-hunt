@@ -13,6 +13,10 @@ function checkCode() {
     const entered = document.getElementById('codeInput').value.trim();
     const pageData = answers[currentPage];
 
+    console.log("Current Page:", currentPage);
+    console.log("Entered Code:", entered);
+    console.log("Page Data:", pageData);
+
     if (!pageData) {
         document.getElementById('errorMsg').innerText = "Error: Page configuration not found!";
         typeWriter(document.getElementById('errorMsg'), 30);
