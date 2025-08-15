@@ -1,21 +1,17 @@
 const answers = {
-    "index": { answer: "578", nextPage: "answer1.html" },
-    "clue2": { answer: "Pad thai", nextPage: "answer2.html" },
-    "clue3": { answer: "ON9728351", nextPage: "answer3.html" },
-    "clue4": { answer: "392", nextPage: "answer4.html" },
-    "clue5": { answer: "motolove", nextPage: "answer5.html" },
-    "clue6": { answer: "NYC", nextPage: "answer6.html" },
-    "clue7": { answer: "key", nextPage: "answer7.html" }
+    "index.html": { answer: "578", nextPage: "answer1.html" },
+    "clue2.html": { answer: "Pad thai", nextPage: "answer2.html" },
+    "clue3.html": { answer: "ON9728351", nextPage: "answer3.html" },
+    "clue4.html": { answer: "392", nextPage: "answer4.html" },
+    "clue5.html": { answer: "motolove", nextPage: "answer5.html" },
+    "clue6.html": { answer: "NYC", nextPage: "answer6.html" },
+    "clue7.html": { answer: "key", nextPage: "answer7.html" }
 };
 
 function checkCode() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index';
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const entered = document.getElementById('codeInput').value.trim();
     const pageData = answers[currentPage];
-
-    console.log("Current Page:", currentPage);
-    console.log("Entered Code:", entered);
-    console.log("Page Data:", pageData);
 
     if (!pageData) {
         document.getElementById('errorMsg').innerText = "Error: Page configuration not found!";
