@@ -3,9 +3,9 @@ const answers = {
     "clue2": { answer: "Pad thai", nextPage: "answer2.html" },
     "clue3": { answer: "ON9728", nextPage: "answer3.html" },
     "clue4": { answer: "392", nextPage: "answer4.html" },
-    "clue5": { answer: "clue5answer", nextPage: "answer5.html" },
-    "clue6": { answer: "clue6answer", nextPage: "answer6.html" },
-    "clue7": { answer: "clue7answer", nextPage: "final.html" }
+    "clue5": { answer: "motolove", nextPage: "answer5.html" },
+    "clue6": { answer: "NYC", nextPage: "answer6.html" },
+    "clue7": { answer: "key", nextPage: "answer7.html" }
 };
 
 function checkCode() {

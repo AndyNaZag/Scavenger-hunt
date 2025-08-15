@@ -1,18 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Clue 7</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventure Continues</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Clue 7</h1>
-    <p>For your final clue, check under your pillow.  
-       You’ll find a golden envelope with the last code.</p>
+    <h1 style="margin-top: 40px;">Bricks 🏗️</h1>
+        <div id="content" style="display: none;">
+        <p style="opacity: 0;">
+            Sometimes the biggest treasures are hidden among the smallest pieces. Dive into the world of bricks and colors, and among the big Legos, a key is waiting just for you.
+        </p>
 
-    <input id="codeInput" type="text" maxlength="4" placeholder="Enter code">
-    <br>
-    <button onclick="checkCode('clue7.html', 'final.html')">Submit</button>
+        <input id="codeInput" type="tel" maxlength="3" placeholder="Enter the 3 digit code" style="opacity: 0;">
+        <br>
+        <button onclick="checkCode()" style="opacity: 0;">Submit</button>
+        <p id="errorMsg" style="color: red; margin-top: 10px; font-size: 4vw;"></p>
+
+        <button onclick="revealHint()" class="clue1" style="margin-top: 120px; opacity: 0;">❓ Reveal Clue</button>
+        <p id="hiddenHint" style="display:none;" class="hidden-hint">
+            Check the big Legos
+        </p>
+
+        <hr style="opacity: 0;">
+        <button onclick="revealHint2()" class="clue2" style="opacity: 0;">💡 Reveal Clue 2</button>
+        <p id="hiddenHint2" style="display:none;" class="hidden-hint">
+            Really? Shelves in the office?
+        </p>
+
+        <hr style="opacity: 0;">
+        <button onclick="revealSolution()" class="solution" style="opacity: 0;">📝 Reveal Solution</button>
+        <p id="hiddenSolution" style="display:none;" class="hidden-hint">
+            The answer is key, duh!
+        </p>
+    </div>
 </body>
 </html>

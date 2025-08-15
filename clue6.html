@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Clue 6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventure Continues</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Clue 6</h1>
-    <p>Open the freezer and look behind the ice cream tub.  
-       There’s a frozen note with the code.</p>
+    <h1 style="margin-top: 40px;">Heights 😎</h1>
+        <div id="content" style="display: none;">
+        <p style="opacity: 0;">
+            I never sleep, yet always dream, <br>
+            Skyscrapers rise where lights all gleam. <br>
+            Yellow cabs race through streets so wide, <br>
+            A famous park runs deep inside. <br><br>
 
-    <input id="codeInput" type="text" maxlength="4" placeholder="Enter code">
-    <br>
-    <button onclick="checkCode('clue6.html', 'clue7.html')">Submit</button>
+            Bridges span the rivers’ flow, <br>
+            Broadway shines with every show. <br>
+            Guess this place, both grand and gritty— <br>
+            What am I?
+        </p>
+
+        <input id="codeInput" type="tel" maxlength="3" placeholder="Enter the name" style="opacity: 0;">
+        <br>
+        <button onclick="checkCode()" style="opacity: 0;">Submit</button>
+        <p id="errorMsg" style="color: red; margin-top: 10px; font-size: 4vw;"></p>
+
+        <button onclick="revealHint()" class="clue1" style="margin-top: 120px; opacity: 0;">❓ Reveal Clue</button>
+        <p id="hiddenHint" style="display:none;" class="hidden-hint">
+            First big trip
+        </p>
+
+        <hr style="opacity: 0;">
+        <button onclick="revealHint2()" class="clue2" style="opacity: 0;">💡 Reveal Clue 2</button>
+        <p id="hiddenHint2" style="display:none;" class="hidden-hint">
+            USA
+        </p>
+
+        <hr style="opacity: 0;">
+        <button onclick="revealSolution()" class="solution" style="opacity: 0;">📝 Reveal Solution</button>
+        <p id="hiddenSolution" style="display:none;" class="hidden-hint">
+            The answer is NYC
+        </p>
+    </div>
 </body>
 </html>
