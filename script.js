@@ -1,7 +1,7 @@
 const answers = {
     "index": { answer: "578", nextPage: "answer1.html" },
     "clue2": { answer: "Pad thai", nextPage: "answer2.html" },
-    "clue3": { answer: "ON9728", nextPage: "answer3.html" },
+    "clue3": { answer: "ON9728351", nextPage: "answer3.html" },
     "clue4": { answer: "392", nextPage: "answer4.html" },
     "clue5": { answer: "motolove", nextPage: "answer5.html" },
     "clue6": { answer: "NYC", nextPage: "answer6.html" },
